@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/netherite_boots_gold_trim",
+  "textures": {
+    "layer0": "muyu:item/divine_boots"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "muyu_test",
+  "version": "1.0.0",
+  "environment": "client",
+  "name": "Wooden Fish integration tests",
+  "entrypoints": {
+    "fabric-client-gametest": [
+      "local.muyu.RelicArtGameTest",
+      "local.muyu.client.GoldenLotusGameTest",
+      "local.muyu.PracticeGameTest"
+    ]
+  },
+  "depends": {
+    "muyu": "*"
+  }
+}

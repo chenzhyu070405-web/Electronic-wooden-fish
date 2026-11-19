@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/netherite_helmet_resin_trim",
+  "textures": {
+    "layer0": "muyu:item/divine_helmet"
+  }
+}

@@ -1,0 +1,611 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "plain": "muyu:block/rosewood_face",
+    "front": "muyu:block/slot_face",
+    "handle": "muyu:block/mallet_handle",
+    "lacquer": "muyu:block/lacquer",
+    "carved": "muyu:block/carved",
+    "mouth": "muyu:block/mouth",
+    "brocade": "muyu:block/brocade",
+    "gold": "muyu:block/gold",
+    "mallet": "muyu:block/mallet",
+    "particle": "muyu:block/rosewood_face"
+  },
+  "elements": [
+    {
+      "name": "antique gold lower hem",
+      "from": [
+        0.65,
+        0,
+        0.65
+      ],
+      "to": [
+        15.35,
+        0.28,
+        15.35
+      ],
+      "faces": {
+        "north": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#gold",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "brocade square cushion",
+      "from": [
+        0.7,
+        0.28,
+        0.7
+      ],
+      "to": [
+        15.3,
+        1.15,
+        15.3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            12,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            12,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            12,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            12,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#brocade",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "single redwood body",
+      "from": [
+        1.4,
+        1.15,
+        1.9
+      ],
+      "to": [
+        14.6,
+        9.95,
+        14.1
+      ],
+      "faces": {
+        "up": {
+          "texture": "#lacquer",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#plain",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#plain",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#carved",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#carved",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "above slot",
+      "from": [
+        1.4,
+        5.37,
+        1.9
+      ],
+      "to": [
+        14.6,
+        9.95,
+        1.9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#front",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            8.32727
+          ]
+        }
+      }
+    },
+    {
+      "name": "below slot",
+      "from": [
+        1.4,
+        1.15,
+        1.9
+      ],
+      "to": [
+        14.6,
+        4.42,
+        1.9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#front",
+          "uv": [
+            0.0,
+            10.05455,
+            16.0,
+            16.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "left end",
+      "from": [
+        1.4,
+        4.42,
+        1.9
+      ],
+      "to": [
+        3.6,
+        5.37,
+        1.9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#front",
+          "uv": [
+            13.33333,
+            8.32727,
+            16.0,
+            10.05455
+          ]
+        }
+      }
+    },
+    {
+      "name": "right end",
+      "from": [
+        12.4,
+        4.42,
+        1.9
+      ],
+      "to": [
+        14.6,
+        5.37,
+        1.9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#front",
+          "uv": [
+            0.0,
+            8.32727,
+            2.66667,
+            10.05455
+          ]
+        }
+      }
+    },
+    {
+      "name": "shadowed slot back",
+      "from": [
+        3.6,
+        4.42,
+        3.35
+      ],
+      "to": [
+        12.4,
+        5.37,
+        3.35
+      ],
+      "faces": {
+        "north": {
+          "texture": "#mouth",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "slot ceiling",
+      "from": [
+        3.6,
+        5.37,
+        1.9
+      ],
+      "to": [
+        12.4,
+        5.37,
+        3.35
+      ],
+      "faces": {
+        "down": {
+          "texture": "#mouth",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "slot left wall",
+      "from": [
+        3.6,
+        4.42,
+        1.9
+      ],
+      "to": [
+        3.6,
+        5.37,
+        3.35
+      ],
+      "faces": {
+        "east": {
+          "texture": "#mouth",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "slot right wall",
+      "from": [
+        12.4,
+        4.42,
+        1.9
+      ],
+      "to": [
+        12.4,
+        5.37,
+        3.35
+      ],
+      "faces": {
+        "west": {
+          "texture": "#mouth",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "slot floor",
+      "from": [
+        3.6,
+        4.42,
+        2.15
+      ],
+      "to": [
+        12.4,
+        4.42,
+        3.35
+      ],
+      "faces": {
+        "up": {
+          "texture": "#mouth",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "lit redwood lip",
+      "from": [
+        3.6,
+        4.42,
+        1.9
+      ],
+      "to": [
+        12.4,
+        4.42,
+        2.15
+      ],
+      "faces": {
+        "up": {
+          "texture": "#lacquer",
+          "uv": [
+            0,
+            1.5,
+            16,
+            2.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "light boxwood head",
+      "from": [
+        2.8,
+        9.95,
+        11.44
+      ],
+      "to": [
+        6.0,
+        12.55,
+        14.06
+      ],
+      "faces": {
+        "north": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#mallet",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "rotation": {
+        "origin": [
+          13.2,
+          11.25,
+          12.75
+        ],
+        "y": -18,
+        "z": 0
+      }
+    },
+    {
+      "name": "dark mallet shaft",
+      "from": [
+        6.0,
+        10.82,
+        12.32
+      ],
+      "to": [
+        13.2,
+        11.68,
+        13.18
+      ],
+      "faces": {
+        "north": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#handle",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "rotation": {
+        "origin": [
+          13.2,
+          11.25,
+          12.75
+        ],
+        "y": -18,
+        "z": 0
+      }
+    }
+  ]
+}

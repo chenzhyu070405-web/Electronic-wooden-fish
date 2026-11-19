@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "local.muyu.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "UseKeyMixin",
+    "DeathScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

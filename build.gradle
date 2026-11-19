@@ -1,0 +1,48 @@
+plugins { id 'net.fabricmc.fabric-loom' version '1.17.21' }
+
+version = project.mod_version
+group = 'local.muyu'
+base { archivesName = 'muyu' }
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+loom {
+    splitEnvironmentSourceSets()
+    mods { muyu { sourceSet sourceSets.main; sourceSet sourceSets.client } }
+    runs { client { client(); runDir 'run/client' } }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: project.version }
+}
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = 'UTF-8'
+    options.compilerArgs.add('-Xlint:deprecation')
+}
+tasks.register('verifyMerit', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'local.muyu.MeritChecks'
+}
+test { dependsOn verifyMerit; enabled = false }
+jar { from('LICENSE') }
+
+fabricApi.configureTests {
+    createSourceSet = true
+    modId = 'muyu_test'
+    enableGameTests = false
+    enableClientGameTests = true
+    clearRunDirectory = false
+}
+apply from: 'gradle/verify-resources.gradle'

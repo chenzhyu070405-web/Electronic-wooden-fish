@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "muyu",
+  "version": "${version}",
+  "name": "电子木鱼：功德无量",
+  "description": "敲木鱼积功德，登莲台领赐福。A wooden fish and a very literal trip to paradise.",
+  "environment": "client",
+  "license": "MIT",
+  "icon": "assets/muyu/icon.png",
+  "entrypoints": {
+    "main": [
+      "local.muyu.Muyu"
+    ],
+    "client": [
+      "local.muyu.client.MuyuClient"
+    ]
+  },
+  "mixins": [
+    "muyu.mixins.json",
+    {
+      "config": "muyu.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.161.0+26.3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "S S",
+    "SLS",
+    "SSS"
+  ],
+  "key": {
+    "S": "muyu:divine_shard",
+    "L": "minecraft:leather"
+  },
+  "result": {
+    "id": "muyu:divine_horse_armor"
+  }
+}

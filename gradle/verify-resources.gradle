@@ -1,0 +1,81 @@
+import groovy.json.JsonSlurper
+import javax.imageio.ImageIO
+
+tasks.register('verifyResources') {
+    group = 'verification'
+    inputs.dir('src/main/resources')
+    doLast {
+        def dir = file('src/main/resources')
+        def asset = new File(dir, 'assets/muyu')
+        def parser = new JsonSlurper()
+        def read = { File f -> parser.parse(f, 'UTF-8') }
+        fileTree(dir).matching { include '**/*.json' }.each { read(it) }
+        def en = read(new File(asset, 'lang/en_us.json'))
+        def zh = read(new File(asset, 'lang/zh_cn.json'))
+        assert zh.keySet() == en.keySet()
+        assert zh['death.attack.muyu.ascension'] == '‘%1$s’上西天了'
+        assert new File(dir, read(new File(dir, 'fabric.mod.json')).icon).isFile()
+        fileTree(asset).matching { include '**/*.png' }.each {
+            def image = ImageIO.read(it)
+            assert image != null && image.width >= 16 && image.height >= 16 : it
+        }
+        def local = { String id, String folder, String extension ->
+            assert id.startsWith('muyu:')
+            def path = new File(asset, folder + '/' + id.substring(5) + extension)
+            assert path.isFile(): path
+            path
+        }
+        def verifyItemModel
+        verifyItemModel = { model ->
+            if (model.type == 'minecraft:model') local(model.model, 'models', '.json')
+            else {
+                assert model.type == 'minecraft:select'
+                model.cases.each { verifyItemModel(it.model) }
+                verifyItemModel(model.fallback)
+            }
+        }
+        new File(asset, 'items').listFiles().each { verifyItemModel(read(it).model) }
+        def variants = read(new File(asset, 'blockstates/wooden_fish.json')).variants
+        assert variants.size() == 8
+        variants.values().each { local(it.model, 'models', '.json') }
+        fileTree(new File(asset,'models')).matching { include '**/*.json' }.each { f ->
+            def model = read(f)
+            model.textures.values().each { local(it, 'textures', '.png') }
+            model.elements?.each { cube ->
+                cube.faces.values().each { face -> assert model.textures.containsKey(face.texture.substring(1)) }
+            }
+        }
+        read(new File(asset,'particles/lotus.json')).textures.each { local(it, 'textures/particle', '.png') }
+        def sounds = read(new File(asset,'sounds.json'))
+        def quotations = [] as Set
+        ['muyu.verse.', 'muyu.line.'].each { prefix ->
+            def lines = zh.keySet().findAll { it.startsWith(prefix) }
+            assert lines.size() == 15
+            lines.each { key ->
+                def quote = (zh[key] =~ /^「([^」]+)」/)
+                assert quote.find() && quotations.add(quote.group(1)) : "Duplicate or missing scripture: $key"
+            }
+        }
+        assert sounds.keySet() == ['knock', 'omen', 'ascent', 'audience', 'blessing', 'passage'].toSet()
+        sounds.values().each { cue ->
+            assert zh.containsKey(cue.subtitle)
+            cue.sounds.each {
+                byte[] audio = local(it, 'sounds', '.ogg').bytes
+                assert audio.length > 1024
+                assert new String(audio, 0, 4, 'US-ASCII') == 'OggS'
+                assert new String(audio, 0, 96, 'ISO-8859-1').contains('vorbis')
+            }
+        }
+        ['entity/buddha', 'gui/cloud_hall', 'gui/cloud'].each { local('muyu:'+it, 'textures', '.png') }
+        def recipe = read(new File(dir, 'data/muyu/recipe/wooden_fish.json'))
+        def loot = read(new File(dir, 'data/muyu/loot_table/blocks/wooden_fish.json'))
+        assert recipe.result.id == loot.pools[0].entries[0].name
+        assert read(new File(dir, 'data/minecraft/tags/item/swords.json')).values == ['muyu:godslayer', 'muyu:divine_sword']
+        read(new File(asset, 'equipment/divine.json')).layers.each { layer, textures ->
+            assert textures == [[texture:'muyu:divine']]
+            assert new File(asset, "textures/entity/equipment/${layer}/divine.png").isFile()
+        }
+        logger.lifecycle("Verified resources: two disjoint pools of 15 written verses, 6 original effect cues, block states, models/textures, loot, recipe, sword tag and ${zh.size()} paired translations.")
+    }
+}
+check.dependsOn verifyResources

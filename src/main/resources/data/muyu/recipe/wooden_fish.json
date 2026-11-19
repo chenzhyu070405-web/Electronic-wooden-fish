@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  S",
+    "PNP",
+    " R "
+  ],
+  "key": {
+    "S": "minecraft:stick",
+    "P": "#minecraft:planks",
+    "N": "minecraft:note_block",
+    "R": "minecraft:redstone"
+  },
+  "result": {
+    "id": "muyu:wooden_fish",
+    "count": 1
+  }
+}

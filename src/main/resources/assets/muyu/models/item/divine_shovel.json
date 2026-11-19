@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/netherite_shovel",
+  "textures": {
+    "layer0": "muyu:item/divine_shovel"
+  }
+}

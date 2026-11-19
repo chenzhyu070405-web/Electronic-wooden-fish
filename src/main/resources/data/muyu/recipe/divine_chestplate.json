@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "S S",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": "muyu:divine_shard"
+  },
+  "result": {
+    "id": "muyu:divine_chestplate"
+  }
+}

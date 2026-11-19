@@ -1,0 +1,38 @@
+{
+  "knock": {
+    "subtitle": "subtitles.muyu.knock",
+    "sounds": [
+      "muyu:knock"
+    ]
+  },
+  "omen": {
+    "subtitle": "subtitles.muyu.omen",
+    "sounds": [
+      "muyu:omen"
+    ]
+  },
+  "ascent": {
+    "subtitle": "subtitles.muyu.ascent",
+    "sounds": [
+      "muyu:ascent"
+    ]
+  },
+  "audience": {
+    "subtitle": "subtitles.muyu.audience",
+    "sounds": [
+      "muyu:audience"
+    ]
+  },
+  "blessing": {
+    "subtitle": "subtitles.muyu.blessing",
+    "sounds": [
+      "muyu:blessing"
+    ]
+  },
+  "passage": {
+    "subtitle": "subtitles.muyu.passage",
+    "sounds": [
+      "muyu:passage"
+    ]
+  }
+}

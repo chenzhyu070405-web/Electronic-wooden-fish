@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,struck=false": {
+      "model": "muyu:block/wooden_fish",
+      "y": 0
+    },
+    "facing=north,struck=true": {
+      "model": "muyu:block/wooden_fish_struck",
+      "y": 0
+    },
+    "facing=east,struck=false": {
+      "model": "muyu:block/wooden_fish",
+      "y": 90
+    },
+    "facing=east,struck=true": {
+      "model": "muyu:block/wooden_fish_struck",
+      "y": 90
+    },
+    "facing=south,struck=false": {
+      "model": "muyu:block/wooden_fish",
+      "y": 180
+    },
+    "facing=south,struck=true": {
+      "model": "muyu:block/wooden_fish_struck",
+      "y": 180
+    },
+    "facing=west,struck=false": {
+      "model": "muyu:block/wooden_fish",
+      "y": 270
+    },
+    "facing=west,struck=true": {
+      "model": "muyu:block/wooden_fish_struck",
+      "y": 270
+    }
+  }
+}

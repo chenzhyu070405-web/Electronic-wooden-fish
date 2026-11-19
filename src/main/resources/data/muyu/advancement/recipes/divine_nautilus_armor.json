@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "muyu:divine_shard"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipes": "muyu:divine_nautilus_armor"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shard",
+      "has_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "muyu:divine_nautilus_armor"
+    ]
+  }
+}
